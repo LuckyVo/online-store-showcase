@@ -1,0 +1,26 @@
+server:
+  shutdown: graceful
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: off
+  application:
+    name: online-store-showcase
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:postgresql://localhost:${port}/shop
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        types.print.banner: false
+    open-in-view: false
+
