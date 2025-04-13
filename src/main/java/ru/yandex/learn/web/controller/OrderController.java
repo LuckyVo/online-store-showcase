@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.learn.db.entity.Order;
 import ru.yandex.learn.dto.OrderDto;
 import ru.yandex.learn.mapper.ItemMapper;
 import ru.yandex.learn.service.OrderService;

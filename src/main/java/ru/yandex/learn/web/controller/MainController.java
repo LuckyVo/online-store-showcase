@@ -7,15 +7,12 @@ import lombok.val;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.yandex.learn.dto.ItemDto;
 import ru.yandex.learn.dto.PagingDto;
 import ru.yandex.learn.mapper.ItemMapper;
 import ru.yandex.learn.service.ItemService;
 import ru.yandex.learn.service.OrderService;
 import ru.yandex.learn.utils.Action;
 import ru.yandex.learn.utils.SortType;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @Controller

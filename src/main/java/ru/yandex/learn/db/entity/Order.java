@@ -2,11 +2,9 @@ package ru.yandex.learn.db.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
 import ru.yandex.learn.utils.Status;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,12 +25,11 @@ public class Order {
     @Column(nullable = false)
     private Status status = Status.CURRENT;
 
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column()
     private LocalDateTime created;
 
-//    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column()
     private LocalDateTime completed;
 
