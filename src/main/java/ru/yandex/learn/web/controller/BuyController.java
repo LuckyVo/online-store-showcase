@@ -2,14 +2,14 @@ package ru.yandex.learn.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.val;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import ru.yandex.learn.service.OrderService;
 
 @RequiredArgsConstructor
+@Controller
 @RequestMapping("/buy")
-@RestController
 public class BuyController {
 
     private final OrderService orderService;

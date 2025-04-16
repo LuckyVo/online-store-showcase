@@ -38,16 +38,16 @@ public class ItemServiceImpl implements ItemService {
     @Override
     @NonNull
     public Entry<Item, Integer> findById(@NonNull Long id) {
-        var item = itemRepository
+        val item = itemRepository
                 .findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Не удалось найти item c id: %d".formatted(id)));
-        Integer count = item
+        val count = item
                 .getOrderItems()
                 .stream()
                 .filter(it -> it.getOrder().getStatus().equals(CURRENT))
                 .map(OrderItem::getCount)
                 .findFirst()
-                .orElseGet(() -> 0);
+                .orElse(0);
         return new SimpleEntry<>(item, count);
     }
 
@@ -55,7 +55,7 @@ public class ItemServiceImpl implements ItemService {
     public Map<Item, Integer> search(String search, SortType sort, int pageNumber, int pageSize) {
         val pageRequest = switch (sort) {
             case NO -> PageRequest.of(pageNumber, pageSize);
-            case TITLE -> PageRequest.of(pageNumber, pageSize, Sort.by("title").ascending());
+            case ALPHA -> PageRequest.of(pageNumber, pageSize, Sort.by("title").ascending());
             case PRICE -> PageRequest.of(pageNumber, pageSize, Sort.by("price").ascending());
         };
         val items = search.isEmpty() ?

@@ -103,6 +103,7 @@ public class OrderServiceImpl implements OrderService {
         var currentOrder = getCurrentOrder();
         currentOrder.setStatus(COMPLETED);
         currentOrder.setCompleted(LocalDateTime.now());
+        currentOrder.setCreated(LocalDateTime.now());
         orderRepository.save(currentOrder);
         return orderRepository.save(new Order());
     }
@@ -120,7 +121,7 @@ public class OrderServiceImpl implements OrderService {
                 .filter(it -> it.getItem().equals(item))
                 .findFirst();
         switch (action) {
-            case PLUS -> {
+            case plus -> {
                 if (orderItem.isPresent()) {
                     orderItem
                             .get()
@@ -131,13 +132,13 @@ public class OrderServiceImpl implements OrderService {
                             .add(new OrderItem(currentOrder, item));
                 }
             }
-            case MINUS -> orderItem.ifPresent(value -> {
+            case minus -> orderItem.ifPresent(value -> {
                         if (value.getCount() > 0) {
                             value.setCount(value.getCount() - 1);
                         }
                     }
             );
-            case DELETE -> orderItem.ifPresent(value -> currentOrder.getOrderItems().remove(value));
+            case delete -> orderItem.ifPresent(value -> currentOrder.getOrderItems().remove(value));
         }
 
         orderRepository.save(currentOrder);

@@ -3,6 +3,7 @@ package ru.yandex.learn.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.val;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.yandex.learn.dto.OrderDto;
@@ -12,7 +13,7 @@ import ru.yandex.learn.service.OrderService;
 
 @RequiredArgsConstructor
 @RequestMapping("/orders")
-@RestController
+@Controller
 public class OrderController {
 
     private final OrderService orderService;

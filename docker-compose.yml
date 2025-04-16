@@ -7,7 +7,7 @@ services:
     container_name: db-shop
     restart: always
     ports:
-      - "5435:5432"
+      - "5432:5432"
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
@@ -16,9 +16,17 @@ services:
       - ./src/test/resources/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/val/lib/postgresql/data
 
+  app:
+    image: "openjdk:21-jdk-slim"
+    ports:
+      - "8090:8080"
+    working_dir: /app
+    volumes:
+      - ./build/libs/OnlineStoreShowcase-1.1.jar:/app/OnlineStoreShowcase-1.1.jar
+    command: java -jar /app/OnlineStoreShowcase-1.1.jar
 
 volumes:
   db-data:
 networks:
-  msanet:
+  app-network:
     driver: bridge

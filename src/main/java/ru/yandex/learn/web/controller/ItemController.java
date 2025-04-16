@@ -3,6 +3,7 @@ package ru.yandex.learn.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.val;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.yandex.learn.mapper.ItemMapper;
@@ -13,7 +14,7 @@ import ru.yandex.learn.utils.Action;
 
 @RequiredArgsConstructor
 @RequestMapping(value = "/items")
-@RestController
+@Controller
 public class ItemController {
 
     private final ItemService itemService;

@@ -37,12 +37,11 @@ public class MainController {
                 .stream()
                 .map(it -> itemMapper.toDto(it.getKey(), it.getValue()))
                 .toList();
-        val pagingDto = PagingDto.builder()
-                .pageNumber(pageNumber)
-                .pageSize(pageSize)
-                .hasNext((long) pageNumber * pageSize < itemService.count(search))
-                .hasPrevious(pageNumber != 1)
-                .build();
+        val pagingDto = new PagingDto(
+                pageNumber,
+                pageSize,
+                (long) pageNumber * pageSize < itemService.count(search),
+                pageNumber != 1);
         model.addAttribute("items", itemsDto);
         model.addAttribute("search", search);
         model.addAttribute("sort", sort.name());

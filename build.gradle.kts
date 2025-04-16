@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "ru.yandex.learn"
-version = "1.0-SNAPSHOT"
+version = "1.1"
 
 
 repositories {
@@ -49,7 +49,6 @@ dependencies {
 
     //test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-//    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.testcontainers:postgresql:$testcontainers")
     testImplementation("org.testcontainers:junit-jupiter:$testcontainers")
     testImplementation("org.testcontainers:testcontainers:$testcontainers")

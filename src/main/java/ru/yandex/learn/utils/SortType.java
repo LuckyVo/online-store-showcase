@@ -1,3 +1,3 @@
 package ru.yandex.learn.utils;
 
-public enum SortType {NO, TITLE, PRICE}
+public enum SortType {NO, ALPHA, PRICE}

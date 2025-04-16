@@ -2,6 +2,7 @@ package ru.yandex.learn.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.val;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.yandex.learn.dto.CartDto;
@@ -11,7 +12,7 @@ import ru.yandex.learn.utils.Action;
 
 @RequiredArgsConstructor
 @RequestMapping(value = "/cart")
-@RestController
+@Controller
 public class CartController {
 
     private final OrderService orderService;
